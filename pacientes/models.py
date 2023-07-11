@@ -47,7 +47,7 @@ class Direccion(models.Model):
     provincia = models.CharField(max_length=75, blank= False)
     zona_rural = models.CharField(max_length=75, blank= False)
     fecha_creacion = models.DateField(auto_now_add=True)
-    usuario_id = models.ForeignKey('Usuario', on_delete=models.CASCADE)
+    usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE)
     
     def __str__(self):
         return f'{self.barrio}'
@@ -57,7 +57,7 @@ class Ocupacion(models.Model):
     ocupacion = models.CharField(max_length=75, blank= False)
     empresa = models.CharField(max_length=75, blank= False)
     fecha_creacion = models.DateField(auto_now_add=True)
-    usuario_id = models.ForeignKey('Usuario', on_delete=models.CASCADE)
+    usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE)
     
     def __str__(self):
         return f'{self.empresa}'
@@ -65,7 +65,7 @@ class Ocupacion(models.Model):
 class SeguroSalud(models.Model):
     tipo_seguro_salud = models.CharField(max_length=75, blank= False)
     fecha_creacion = models.DateField(auto_now_add=True)
-    usuario_id = models.ForeignKey('Usuario', on_delete=models.CASCADE)
+    usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE)
     
     def __str__(self):
         return f'{self.tipo_seguro_salud}'
@@ -77,7 +77,7 @@ class DatosEmergencia(models.Model):
     direccion = models.CharField(max_length=150, blank= False)
     nombre = models.CharField(max_length=75, blank= False)
     fecha_creacion = models.DateField(auto_now_add=True)
-    usuario_id = models.ForeignKey('Usuario', on_delete=models.CASCADE)
+    usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE)
     
     def __str__(self):
         return f'{self.nombre}'
